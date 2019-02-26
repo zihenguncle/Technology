@@ -1,0 +1,1 @@
+include ':app', ':model_inforecommend', ':model_community', ':model_groupmessage', ':model_personal', ':model_user', ':common', ':component'
