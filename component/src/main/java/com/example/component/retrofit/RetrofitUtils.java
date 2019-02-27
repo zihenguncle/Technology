@@ -1,4 +1,4 @@
-package com.example.component.mvp.retrofit;
+package com.example.component.retrofit;
 
 public class RetrofitUtils {
 

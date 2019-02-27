@@ -28,4 +28,9 @@ dependencies {
 
     implementation project(':component')
     implementation project(':model_user')
+    implementation project(':model_community')
+    implementation project(':model_groupmessage')
+    implementation project(':model_inforecommend')
+    implementation project(':model_personal')
+    implementation project(':common')
 }

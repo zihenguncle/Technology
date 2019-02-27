@@ -31,4 +31,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //retrofit
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.interceptor"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.converterGson"
+    implementation "io.reactivex:rxandroid:$rootProject.rxandroid"
+    implementation "io.reactivex:rxjava:$rootProject.rxjava"
+    implementation "com.hwangjr.rxbus:rxbus:$rootProject.rxbus"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.adapterRxjava"
+
+    //屏幕适配
+    implementation 'me.jessyan:autosize:1.1.2'
+
 }
