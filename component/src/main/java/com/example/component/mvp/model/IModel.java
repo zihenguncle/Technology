@@ -12,5 +12,6 @@ public interface IModel {
     void requestDataDelete(String url,Class clazz,ICallBack iCallBack);
     void requestDataPost(String url, Map<String,String> map,Class clazz,ICallBack iCallBack);
     void requestDataPut(String url,Map<String,String> map,Class clazz,ICallBack iCallBack);
-    void requestDataMoreFile(String url, Map<String,String> map, List<File> list,ICallBack iCallBack);
+    void requestDataFile(String url,Map<String,String> map,Class clazz,ICallBack iCallBack);
+    void requestDataMoreFile(String url, Map<String,String> map, List<File> list,Class clazz,ICallBack iCallBack);
 }

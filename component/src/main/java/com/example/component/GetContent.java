@@ -14,4 +14,7 @@ public class GetContent {
         context = appcontext;
     }
 
+    public static Context getContent(){
+        return context;
+    }
 }

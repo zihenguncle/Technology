@@ -3,9 +3,13 @@ package com.wd.tech.myapp;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Environment;
 
 import com.example.component.GetContent;
 import com.example.user.UserGetContent;
+import com.facebook.cache.disk.DiskCacheConfig;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 
 import java.util.Locale;
 
@@ -25,9 +29,29 @@ public class MyApplication extends Application {
         GetContent.getContent(context);
         UserGetContent.getContent(context);
 
-        /**
-         * 屏幕适配
-         */
+        //Fresco设置缓存
+        setDisk();
+
+
+        //屏幕适配
+         aotoSize();
+
+
+    }
+
+    private void setDisk(){
+        DiskCacheConfig diskCacheConfig =  DiskCacheConfig.newBuilder(this)
+                .setBaseDirectoryName("images_zj")
+                .setBaseDirectoryPath(Environment.getExternalStorageDirectory())
+                .build();
+        //设置磁盘缓存的配置,生成配置文件
+        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+                .setMainDiskCacheConfig(diskCacheConfig)
+                .build();
+        Fresco.initialize(this,config);
+    }
+
+    private void aotoSize(){
         AutoSize.initCompatMultiProcess(this);
         AutoSizeConfig.getInstance().setExcludeFontScale(true).setOnAdaptListener(new onAdaptListener() {
             @Override
@@ -43,9 +67,5 @@ public class MyApplication extends Application {
                 LogUtils.d(String.format(Locale.ENGLISH, "%s onAdaptAfter!", target.getClass().getName()));
             }
         }).setBaseOnWidth(false).setUseDeviceSize(true);
-
     }
-
-
-
 }
