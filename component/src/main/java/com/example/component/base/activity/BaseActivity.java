@@ -39,7 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity    {
         //设置布局
         setContentView(intiLayout());
         //初始化控件
-        initView();
+        initView(savedInstanceState);
 
         //拿到整个activity的视图
         decorView = getWindow().getDecorView();
@@ -63,7 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity    {
     public abstract int intiLayout();
 
     //初始化布局
-    public abstract void initView();
+    public abstract void initView(Bundle savedInstanceState);
 
     //设置数据
     public abstract void initData();
