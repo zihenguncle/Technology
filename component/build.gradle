@@ -44,7 +44,7 @@ dependencies {
     api 'me.jessyan:autosize:1.1.2'
     //.Butterknife
     api 'com.jakewharton:butterknife:8.8.1'
-    api 'com.jakewharton:butterknife-compiler:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //Fresco
     api 'com.facebook.fresco:fresco:1.11.0'
 

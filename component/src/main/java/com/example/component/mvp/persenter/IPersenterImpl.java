@@ -107,4 +107,13 @@ public class IPersenterImpl implements IPersenter {
             }
         });
     }
+
+    public void detach(){
+        if(iView != null){
+            iView = null;
+        }
+        if(iModel != null){
+            iModel = null;
+        }
+    }
 }
