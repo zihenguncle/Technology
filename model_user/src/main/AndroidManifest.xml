@@ -2,8 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user">
 
-    <application>
-        <activity android:name=".SplashActivity">
+    <application
+        android:theme="@style/NoTitle"
+        >
+        <activity android:name=".SplashActivity"
+            android:theme="@style/NoTitle"
+            >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
