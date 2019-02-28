@@ -1,2 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.personal" />
+    package="com.example.personal" >
+
+    <application
+        android:theme="@style/NoTitle"
+        >
+        <activity android:name=".activity.ShowActivity"
+            android:theme="@style/NoTitle"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
