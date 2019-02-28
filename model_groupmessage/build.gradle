@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 28
 
@@ -38,6 +39,12 @@ dependencies {
     //路由
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     implementation project(':component')
+
+
 
 }
