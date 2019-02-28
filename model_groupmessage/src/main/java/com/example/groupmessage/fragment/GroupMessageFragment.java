@@ -1,17 +1,14 @@
-package com.example.personal.fragment;
+package com.example.groupmessage.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.component.base.fragment.BaseNetworkFragment;
-import com.example.personal.R;
+import com.example.groupmessage.R;
 
-public class CommunityFragment extends BaseNetworkFragment {
+
+@Route(path = "/model_groupmessage/GroupMessageFragment")
+public class GroupMessageFragment extends BaseNetworkFragment {
 
     @Override
     protected void initData() {
@@ -25,7 +22,7 @@ public class CommunityFragment extends BaseNetworkFragment {
 
     @Override
     protected int getViewById() {
-        return R.layout.community_fragment;
+        return R.layout.group_fragment;
     }
 
     @Override

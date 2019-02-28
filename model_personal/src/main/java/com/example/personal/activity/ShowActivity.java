@@ -1,35 +1,30 @@
 package com.example.personal.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.component.base.activity.BaseActivity;
 import com.example.personal.R;
-import com.example.personal.fragment.CommendFragment;
-import com.example.personal.fragment.CommunityFragment;
-import com.example.personal.fragment.GroupMessageFragment;
 import com.example.personal.fragment.LeftPersonalFragment;
 
 public class ShowActivity extends BaseActivity {
     private RadioGroup radioGroup;
-    private CommendFragment commendFragment;
-    private GroupMessageFragment groupMessageFragment;
-    private CommunityFragment communityFragment;
     private FragmentManager fragmentManager;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private ActionBar actionBar;
+    private Fragment commendFragment;
+    private Fragment messagesFragment;
+    private Fragment communityFragment;
 
 
     @Override
@@ -89,9 +84,10 @@ public class ShowActivity extends BaseActivity {
 
         fragmentManager = getSupportFragmentManager();
 
+
         //将所有Fragment添加到占位布局
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        commendFragment = new CommendFragment();
+        commendFragment = (Fragment) ARouter.getInstance().build("/model_inforecommend/CommendFragment").navigation();
         fragmentTransaction
                 .add(R.id.frameLayout, commendFragment)
                 .commit();
@@ -103,21 +99,18 @@ public class ShowActivity extends BaseActivity {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 if(checkedId==R.id.radioButton_comment){
                     fragmentTransaction.show(commendFragment).commit();
-
                 }else if(checkedId==R.id.radioButton_message){
-                    if (groupMessageFragment == null) {
-                        groupMessageFragment = new GroupMessageFragment();
-                        fragmentTransaction.add(R.id.frameLayout, groupMessageFragment).commit();
+                    if (messagesFragment == null) {
+                        messagesFragment = (Fragment) ARouter.getInstance().build("/model_groupmessage/GroupMessageFragment").navigation();
+                        fragmentTransaction.add(R.id.frameLayout, messagesFragment).commit();
                     } else {
-                        fragmentTransaction.show(groupMessageFragment).commit();
+                        fragmentTransaction.show(messagesFragment).commit();
                     }
-
-
                 }else if(checkedId==R.id.radioButton_community){
-                    if(communityFragment==null)
+                    if(communityFragment ==null)
                     {
-                        communityFragment = new CommunityFragment();
-                        fragmentTransaction.add(R.id.frameLayout,communityFragment).commit();
+                        communityFragment = (Fragment) ARouter.getInstance().build("/model_community/CommunityFragment").navigation();
+                        fragmentTransaction.add(R.id.frameLayout, communityFragment).commit();
                     }else
                     {
                         fragmentTransaction.show(communityFragment).commit();
@@ -134,8 +127,8 @@ public class ShowActivity extends BaseActivity {
         if (commendFragment != null && commendFragment.isAdded()) {
             fragmentTransaction.hide(commendFragment);
         }
-        if (groupMessageFragment != null && groupMessageFragment.isAdded()) {
-            fragmentTransaction.hide(groupMessageFragment);
+        if (messagesFragment != null && messagesFragment.isAdded()) {
+            fragmentTransaction.hide(messagesFragment);
         }
         if (communityFragment != null && communityFragment.isAdded()) {
             fragmentTransaction.hide(communityFragment);
