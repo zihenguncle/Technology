@@ -34,6 +34,9 @@ public class ShowActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+
+        isNeedFCancle = false;
+
         radioGroup = findViewById(R.id.personal_radioGroup_change);
         drawerLayout=findViewById(R.id.drawer);
         //加载布局
