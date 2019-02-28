@@ -8,9 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.component.base.fragment.BaseNetworkFragment;
 import com.example.personal.R;
-//@Route(path = "/test/TestFragment")
+@Route(path = "/model_personal/CommendFragment")
 public class CommendFragment extends BaseNetworkFragment {
 
     @Override
