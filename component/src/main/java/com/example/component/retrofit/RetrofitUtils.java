@@ -1,6 +1,9 @@
 package com.example.component.retrofit;
 
+import android.text.TextUtils;
+
 import com.example.component.GetContent;
+import com.example.component.utils.SpUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,10 +20,13 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -64,7 +70,34 @@ public class RetrofitUtils {
                 .connectTimeout(5000,TimeUnit.SECONDS)
                 .sslSocketFactory(sc.getSocketFactory(), (X509TrustManager) tm)
                 .hostnameVerifier(hostnameVerifier)
-                .addInterceptor(interceptor)
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        //拿到请求
+                        Request request = chain.request();
+                        //取出登陆时获得的两个id
+                        String userId = (String) SpUtils.getString("userId", "");
+                        String sessionId = (String) SpUtils.getString( "sessionId", "");
+
+                        //重写构造请求
+                        Request.Builder builder = request.newBuilder();
+                        //把原来请求的数据原样放进去
+                        builder.method(request.method(),request.body());
+
+                        if(!TextUtils.isEmpty(userId)&&!TextUtils.isEmpty(sessionId)){
+                            builder.addHeader("userId",userId);
+                            builder.addHeader("sessionId",sessionId);
+                            builder.addHeader("ak","0110010010000");
+                            builder.addHeader("Content-Type","application/x-www-form-urlencoded");
+                        }
+
+                        //打包
+                        Request request1 = builder.build();
+
+                        return chain.proceed(request1);
+                    }
+                })
+
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()

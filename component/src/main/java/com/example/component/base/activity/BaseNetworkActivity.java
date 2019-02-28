@@ -204,10 +204,12 @@ public abstract class BaseNetworkActivity extends AppCompatActivity implements I
                 }
             }else if(event.getAction() == MotionEvent.ACTION_UP){
                 float moveDistanceX = event.getX()-downX;
-                if(moveDistanceX > screenWidth / 2){
-                    ContinueMove(moveDistanceX);
-                }else {
-                    reToBackLeft(moveDistanceX);
+                if(moveDistanceX > 0){
+                    if(moveDistanceX > screenWidth / 2){
+                        ContinueMove(moveDistanceX);
+                    }else {
+                        reToBackLeft(moveDistanceX);
+                    }
                 }
             }
         }
