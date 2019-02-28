@@ -53,8 +53,6 @@ public abstract class BaseActivity extends AppCompatActivity    {
         initData();
     }
 
-    //是否要支持滑动关闭
-    public abstract void isSlide(Boolean bool);
 
     //设置布局
     public abstract int intiLayout();

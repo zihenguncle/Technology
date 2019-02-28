@@ -80,11 +80,6 @@ public abstract class BaseNetworkActivity extends AppCompatActivity implements I
 
     public abstract void failed(String error);
 
-    //是否要支持滑动关闭
-    public void isSlide(Boolean bool){
-        isNeedFCancle = bool;
-    }
-
 
     //GET
     public void startRequestDataGet(String url,Class clazz){
