@@ -1,5 +1,6 @@
 package com.example.component.retrofit;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.example.component.GetContent;
@@ -76,8 +77,9 @@ public class RetrofitUtils {
                         //拿到请求
                         Request request = chain.request();
                         //取出登陆时获得的两个id
-                        String userId = (String) SpUtils.getString("userId", "");
-                        String sessionId = (String) SpUtils.getString( "sessionId", "");
+                        SpUtils spUtils = new SpUtils("User",GetContent.getContent());
+                        String userId = (String) spUtils.getString("userId", "");
+                        String sessionId = (String) spUtils.getString( "sessionId", "");
 
                         //重写构造请求
                         Request.Builder builder = request.newBuilder();

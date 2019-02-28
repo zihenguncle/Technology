@@ -9,7 +9,7 @@ public class SpUtils {
     private static SharedPreferences preferences;
     private static SharedPreferences.Editor editor;
 
-    public SpUtils() {
+    public SpUtils(String spName,Context context) {
         preferences = GetContent.getContent().getSharedPreferences("User", GetContent.getContent().MODE_PRIVATE);
         editor = preferences.edit();
     }
@@ -21,7 +21,7 @@ public class SpUtils {
      * @param key
      * @param value
      */
-    public static void putString(String key, String value) {
+    public void putString(String key, String value) {
         editor.putString(key, value);
         editor.commit();
     }
@@ -31,17 +31,17 @@ public class SpUtils {
         editor.commit();
     }
 
-    public static void putFloat(String key, float value) {
+    public void putFloat(String key, float value) {
         editor.putFloat(key, value);
         editor.commit();
     }
 
-    public static void putInt(String key, int value) {
+    public void putInt(String key, int value) {
         editor.putInt(key, value);
         editor.commit();
     }
 
-    public static void putLong(String key, long value) {
+    public void putLong(String key, long value) {
         editor.putLong(key, value);
         editor.commit();
     }
@@ -49,7 +49,7 @@ public class SpUtils {
     /**
      * 清空SP里所以数据
      */
-    public static void clear() {
+    public void clear() {
         editor.clear();
         editor.commit();
     }
@@ -58,7 +58,7 @@ public class SpUtils {
      * 删除SP里指定key对应的数据项
      * @param key
      */
-    public static void remove(String key) {
+    public void remove(String key) {
         editor.remove(key);
         editor.commit();
     }
@@ -69,23 +69,23 @@ public class SpUtils {
      * @param defValue
      * @return
      */
-    public static String getString(String key, String defValue) {
+    public String getString(String key, String defValue) {
         return preferences.getString(key, defValue);
     }
 
-    public static boolean getBoolean(String key, boolean defValue) {
+    public boolean getBoolean(String key, boolean defValue) {
         return preferences.getBoolean(key, defValue);
     }
 
-    public static float getFloat(String key, float defValue) {
+    public float getFloat(String key, float defValue) {
         return preferences.getFloat(key, defValue);
     }
 
-    public static int getInt(String key, int defValue) {
+    public int getInt(String key, int defValue) {
         return preferences.getInt(key, defValue);
     }
 
-    public static long getLong(String key, long defValue) {
+    public long getLong(String key, long defValue) {
         return preferences.getLong(key, defValue);
     }
 
@@ -94,7 +94,7 @@ public class SpUtils {
      * @param key
      * @return
      */
-    public static boolean contains(String key){
+    public boolean contains(String key){
         return preferences.contains(key);
     }
 
