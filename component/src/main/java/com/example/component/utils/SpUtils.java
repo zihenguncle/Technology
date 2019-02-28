@@ -3,12 +3,14 @@ package com.example.component.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.component.GetContent;
+
 public class SpUtils {
     private static SharedPreferences preferences;
     private static SharedPreferences.Editor editor;
 
-    public SpUtils(Context context, String fileName) {
-        preferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
+    public SpUtils() {
+        preferences = GetContent.getContent().getSharedPreferences("User", GetContent.getContent().MODE_PRIVATE);
         editor = preferences.edit();
     }
 
