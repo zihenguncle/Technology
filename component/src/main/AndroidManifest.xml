@@ -2,10 +2,9 @@
     package="com.example.component" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         >
-        <activity android:name=".base.A" />
-        <activity android:name=".base.activity.BaseNetworkActivity" />
     </application>
 
 </manifest>

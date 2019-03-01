@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.inforecommend" />
+    package="com.example.inforecommend" >
+    <application
+        android:theme="@style/NoTitle"
+        >
+
+    </application>
+</manifest>

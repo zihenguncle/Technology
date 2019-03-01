@@ -55,13 +55,13 @@ public abstract class BaseNetworkFragment extends Fragment implements IView {
 
     //GET
     public void startRequestDataGet(String url,Class clazz){
-        if(!NetWorkUtils.hasNetwork(GetContent.getContent())){
+     if(!NetWorkUtils.hasNetwork(getActivity())){
             ToastUtils.toast("当前网络不可用");
-            NetWorkUtils.setNetworkMethod(GetContent.getContent());
+            NetWorkUtils.setNetworkMethod(getActivity());
             return;
         } else {
             if (loadingDialog == null) {
-                loadingDialog = LoadingUtils.createLoadingDialog(GetContent.getContent(), "加载中.....");
+                loadingDialog = LoadingUtils.createLoadingDialog(getActivity(), "加载中.....");
             }
             iPersenter.startRequestGet(url, clazz);
         }
@@ -70,13 +70,13 @@ public abstract class BaseNetworkFragment extends Fragment implements IView {
 
     //DELETE
     public void startRequestDataDelete(String url,Class clazz){
-        if(!NetWorkUtils.hasNetwork(GetContent.getContent())){
+        if(!NetWorkUtils.hasNetwork(getActivity())){
             ToastUtils.toast("当前网络不可用");
-            NetWorkUtils.setNetworkMethod(GetContent.getContent());
+            NetWorkUtils.setNetworkMethod(getActivity());
             return;
         } else {
             if (loadingDialog == null) {
-                loadingDialog = LoadingUtils.createLoadingDialog(GetContent.getContent(), "加载中.....");
+                loadingDialog = LoadingUtils.createLoadingDialog(getActivity(), "加载中.....");
             }
             iPersenter.startRequestDelete(url, clazz);
         }
@@ -85,13 +85,13 @@ public abstract class BaseNetworkFragment extends Fragment implements IView {
 
     //POST
     public void startRequestDataPost(String url, Map<String,String> map, Class clazz){
-        if(!NetWorkUtils.hasNetwork(GetContent.getContent())){
+        if(!NetWorkUtils.hasNetwork(getActivity())){
             ToastUtils.toast("当前网络不可用");
-            NetWorkUtils.setNetworkMethod(GetContent.getContent());
+            NetWorkUtils.setNetworkMethod(getActivity());
             return;
         } else {
             if (loadingDialog == null) {
-                loadingDialog = LoadingUtils.createLoadingDialog(GetContent.getContent(), "加载中.....");
+                loadingDialog = LoadingUtils.createLoadingDialog(getActivity(), "加载中.....");
             }
             iPersenter.startRequestPost(url,map,clazz);
         }
@@ -100,13 +100,13 @@ public abstract class BaseNetworkFragment extends Fragment implements IView {
 
     //PUT
     public void startRequestDataPut(String url, Map<String,String> map, Class clazz){
-        if(!NetWorkUtils.hasNetwork(GetContent.getContent())){
+        if(!NetWorkUtils.hasNetwork(getActivity())){
             ToastUtils.toast("当前网络不可用");
-            NetWorkUtils.setNetworkMethod(GetContent.getContent());
+            NetWorkUtils.setNetworkMethod(getActivity());
             return;
         } else {
             if (loadingDialog == null) {
-                loadingDialog = LoadingUtils.createLoadingDialog(GetContent.getContent(), "加载中.....");
+                loadingDialog = LoadingUtils.createLoadingDialog(getActivity(), "加载中.....");
             }
             iPersenter.startRequestPut(url,map,clazz);
         }
@@ -115,13 +115,13 @@ public abstract class BaseNetworkFragment extends Fragment implements IView {
 
     //FILE
     public void startRequestFile(String url,Map<String,String> map,Class clazz){
-        if(!NetWorkUtils.hasNetwork(GetContent.getContent())){
+        if(!NetWorkUtils.hasNetwork(getActivity())){
             ToastUtils.toast("当前网络不可用");
-            NetWorkUtils.setNetworkMethod(GetContent.getContent());
+            NetWorkUtils.setNetworkMethod(getActivity());
             return;
         } else {
             if (loadingDialog == null) {
-                loadingDialog = LoadingUtils.createLoadingDialog(GetContent.getContent(), "加载中.....");
+                loadingDialog = LoadingUtils.createLoadingDialog(getActivity(), "加载中.....");
             }
             iPersenter.startRequestFile(url,map,clazz);
         }
