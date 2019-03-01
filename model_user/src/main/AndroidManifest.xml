@@ -5,16 +5,18 @@
     <application
         android:theme="@style/NoTitle"
         >
-        <activity android:name=".SplashActivity"
+        <activity android:name=".activity.SplashActivity"
             android:theme="@style/NoTitle"
             >
-      <!--  <intent-filter>
+      <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
 
-        </intent-filter>-->
+        </intent-filter>
     </activity>
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.RegisterActivity"/>
     </application>
 
 </manifest>
