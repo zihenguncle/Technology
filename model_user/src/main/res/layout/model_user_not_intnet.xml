@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/model_user_not_intnet"
+        android:layout_width="174dp"
+        android:layout_height="174dp"
+        android:background="@mipmap/notinternet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="146dp"
+        />
+    <TextView
+        android:id="@+id/model_user_activity_register_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/model_user_not_intnet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/model_user_not_intnet"
+        />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/model_user_activity_login_button_selector"
+        android:layout_below="@id/model_user_activity_register_textview"
+        android:layout_marginTop="90dp"
+        android:text="@string/not_intnet_button"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        />
+</RelativeLayout>

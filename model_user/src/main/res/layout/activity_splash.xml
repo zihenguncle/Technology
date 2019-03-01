@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    android:background="@mipmap/bitmap"
+    tools:context=".activity.SplashActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/model_user_image_logo"
+        style="@style/text_image_logo"
+        android:background="@mipmap/logo"
+        />
+    <TextView
+        android:id="@+id/model_user_textView_chain"
+        style="@style/Title_Chain"
+        android:layout_below="@id/model_user_image_logo"
+        />
+
+    <TextView
+        android:id="@+id/model_user_textView_english"
+        style="@style/title_English"
+        android:layout_below="@id/model_user_textView_chain"
+        />
+    <TextView
+        android:layout_marginBottom="20dp"
+        style="@style/title_create_place"
+        />
+</RelativeLayout>

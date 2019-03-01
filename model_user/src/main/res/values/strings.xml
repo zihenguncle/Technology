@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">user</string>
+    <string name="three_login">第三方账号快速登录</string>
+    <string name="user_register_name">昵称</string>
+    <string name="user_register_phone">手机号</string>
+    <string name="user_register_pwd">登录密码</string>
+    <string name="model_user_register_message">短信验证注册</string>
+    <string name="register_button">注册</string>
+    <string name="model_user_not_intnet">网络不可用,请检查你的网络连接</string>
+    <string name="not_intnet_button">连接网络</string>
 </resources>
